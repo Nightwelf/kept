@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Kept Memories</title>
+  <meta name="description" content="How Kept Memories handles data: photos are analyzed only on your phone and never uploaded.">
+  <meta name="theme-color" content="#6b4eff">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="header is-scrolled">
+  <div class="wrap">
+    <a class="brand" href="./?lang=en"><img src="assets/favicon.svg" alt="" width="34" height="34"><span>Kept Memories</span></a>
+    <nav class="lang" style="margin-left:auto" aria-label="Language">
+      <a href="privacy.html">RU</a>
+      <a href="privacy-en.html" aria-current="true">EN</a>
+    </nav>
+  </div>
+</header>
+
+<!-- The policy itself: edit it here, this page is its only copy. -->
+<main class="wrap doc">
+<h1 id="kept-memories-privacy-policy">Kept Memories Privacy Policy</h1>
+<p>Effective September 29, 2026.</p>
+<p>Kept Memories (“Kept”) is an Android app that builds memories from the photos and videos on your phone. In short: <strong>your photos are analyzed only on your device and are never uploaded.</strong> The only thing that goes online is the approximate location of a place, to look up the name of the city.</p>
+<p>Developer: [developer name]. Contact: [contact e-mail].</p>
+<h2 id="what-the-app-reads">What the app reads</h2>
+<ul>
+<li><strong>Photos and videos in your phone’s media library</strong> and their properties: date taken, size, folder, favorite mark, EXIF geotag. You grant access in the system dialog; with partial access Kept sees only the photos you selected.</li>
+<li>Kept <strong>only reads</strong> your library: it never deletes, moves or changes your files. The only thing the app writes to your gallery is a collage you save yourself with “Save to gallery” (the <code>Pictures/Kept</code> folder).</li>
+</ul>
+<h2 id="what-is-computed-on-your-device">What is computed on your device</h2>
+<p>All of the following is computed on the phone and stored in the app’s private storage, which other apps cannot access:</p>
+<ul>
+<li>frame quality (sharpness, exposure) and duplicate detection;</li>
+<li>whether a photo has faces, where they are, smiles and open eyes. Kept <strong>does not recognize people</strong>: it does not determine who is in a photo and does not create biometric face templates;</li>
+<li>content labels (for example “beach”, “food”) by the Google ML Kit model built into the app, without contacting any server;</li>
+<li>events, trips and places where you often take photos (for example home and work), from dates and geotags;</li>
+<li>memory selections and your reactions to them.</li>
+</ul>
+<p>Settings are also kept only on the phone: notification time, memory types, birthdays (a name and a date you enter yourself), hidden dates and folders.</p>
+<h2 id="what-goes-online">What goes online</h2>
+<p>Only a request for the city name of an event:</p>
+<ul>
+<li><strong>what is sent:</strong> the coordinates of the event’s center rounded to about a kilometer (two decimal places) and the interface language. No photos, thumbnails, dates, analysis results, and no user or device identifiers;</li>
+<li><strong>to whom:</strong>
+<ol type="1">
+<li>the Android system geocoder, a service built into the phone (on devices with Google services the request is handled by Google);</li>
+<li>if the system geocoder is missing or does not answer, the Nominatim service of the OpenStreetMap Foundation (nominatim.openstreetmap.org). As its usage policy requires, the request carries the app name and version (<code>Kept/1.0 (Android; ru.nightwelf.kept)</code>); like any web server, it sees the request’s IP address. Its policy: <a href="https://osmfoundation.org/wiki/Privacy_Policy" class="uri">https://osmfoundation.org/wiki/Privacy_Policy</a>;</li>
+</ol></li>
+<li><strong>how often:</strong> one request per place. The answer is stored on the phone for good and never requested again.</li>
+</ul>
+<p>Without internet everything else works; a memory simply comes without a city name.</p>
+<p>The usage statistics that the ML Kit library sends to Google by default are turned off in Kept.</p>
+<h2 id="what-kept-does-not-do">What Kept does not do</h2>
+<ul>
+<li>It does not upload photos, videos or thumbnails anywhere.</li>
+<li>It does not collect analytics or usage statistics. If that ever changes, it will be opt-in only, off by default, and this policy will be updated beforehand.</li>
+<li>No ads, no account, no sharing or selling of data to third parties.</li>
+<li>The developer has no servers your data could end up on.</li>
+<li>Kept’s data is excluded from Android backup and device transfer: on a new phone the app sorts the gallery again.</li>
+</ul>
+<h2 id="actions-you-take">Actions you take</h2>
+<ul>
+<li><strong>Share</strong> hands the collage to the app you pick (a messenger, e-mail). From then on it is handled under that app’s rules.</li>
+<li><strong>Open in gallery</strong> opens the photo in your gallery app.</li>
+<li><strong>The morning notification</strong> is scheduled and shown by the phone itself; you can change its time, or turn notifications off in Android settings.</li>
+</ul>
+<h2 id="permissions">Permissions</h2>
+<ul>
+<li>Photos and videos (<code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code>, <code>READ_MEDIA_VISUAL_USER_SELECTED</code>, on Android 10–12 <code>READ_EXTERNAL_STORAGE</code>): reading the library.</li>
+<li>Photo locations (<code>ACCESS_MEDIA_LOCATION</code>): trips, cities and places. Without it Kept works without location features.</li>
+<li>Notifications (<code>POST_NOTIFICATIONS</code>): one morning notification about a memory.</li>
+<li>Internet (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>): only the city name request.</li>
+<li>Background work (<code>RECEIVE_BOOT_COMPLETED</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>): processing the gallery in small portions, mostly while charging, and restoring the schedule after a reboot.</li>
+</ul>
+<h2 id="deleting-data">Deleting data</h2>
+<p>You can hide a memory, a date or a photo in the app. All of Kept’s data is deleted when you uninstall the app or tap “Clear storage” in Android settings. Your photos are not affected.</p>
+<h2 id="children">Children</h2>
+<p>Kept is not directed at children and collects no data about anyone.</p>
+<h2 id="changes">Changes</h2>
+<p>A new version of this policy is published at the same address with a new effective date.</p>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="./?lang=en"><img src="assets/favicon.svg" alt="" width="28" height="28"><span>Kept Memories</span></a>
+    <a href="./?lang=en">← Home</a>
+    <span class="copy">© 2026 Kept Memories</span>
+  </div>
+</footer>
+
+</body>
+</html>
