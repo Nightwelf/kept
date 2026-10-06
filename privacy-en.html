@@ -37,12 +37,13 @@
 <p>All of the following is computed on the phone and stored in the app’s private storage, which other apps cannot access:</p>
 <ul>
 <li>frame quality (sharpness, exposure) and duplicate detection;</li>
-<li>whether a photo has faces, where they are, smiles and open eyes. Kept <strong>does not recognize people</strong>: it does not determine who is in a photo and does not create biometric face templates;</li>
+<li>whether a photo has faces, where they are, smiles and open eyes;</li>
+<li><strong>grouping faces into people</strong> (the “Recognize people” setting, on by default): a built-in SFace model computes a numeric fingerprint of each face (128 numbers), and similar faces are put into groups&nbsp;— that is how memories like “A year in faces” come about. The fingerprints and groups never leave the phone, are not backed up and are not matched against anything outside: Kept does not know who these people are unless you give a person a name yourself. Turning the setting off deletes all fingerprints, groups and names at once;</li>
 <li>content labels (for example “beach”, “food”) by the Google ML Kit model built into the app, without contacting any server;</li>
 <li>events, trips and places where you often take photos (for example home and work), from dates and geotags;</li>
 <li>memory selections and your reactions to them.</li>
 </ul>
-<p>Settings are also kept only on the phone: notification time, memory types, birthdays (a name and a date you enter yourself), hidden dates and folders.</p>
+<p>Settings are also kept only on the phone: notification time, memory types, birthdays (a name and a date you enter yourself), people's names (also only the ones you give), hidden people, hidden dates and folders.</p>
 <h2 id="what-goes-online">What goes online</h2>
 <p>Only a request for the city name of an event:</p>
 <ul>
