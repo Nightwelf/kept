@@ -26,11 +26,11 @@
 <main class="wrap doc">
 <h1 id="kept-memories-privacy-policy">Kept Memories Privacy Policy</h1>
 <p>Effective September 29, 2026.</p>
-<p>Kept Memories (“Kept”) is an Android app that builds memories from the photos and videos on your phone. In short: <strong>your photos are analyzed only on your device and are never uploaded.</strong> The only thing that goes online is the approximate location of a place, to look up the name of the city.</p>
+<p>Kept Memories (“Kept”) is an Android app that builds memories from the photos on your phone. In short: <strong>your photos are analyzed only on your device and are never uploaded.</strong> The only thing that goes online is the approximate location of a place, to look up the name of the city.</p>
 <p>Developer: [developer name]. Contact: [contact e-mail].</p>
 <h2 id="what-the-app-reads">What the app reads</h2>
 <ul>
-<li><strong>Photos and videos in your phone’s media library</strong> and their properties: date taken, size, folder, favorite mark, EXIF geotag. You grant access in the system dialog; with partial access Kept sees only the photos you selected.</li>
+<li><strong>Photos in your phone’s media library</strong> and their properties: date taken, size, folder, favorite mark, EXIF geotag. You grant access in the system dialog; with partial access Kept sees only the photos you selected.</li>
 <li>Kept <strong>only reads</strong> your library: it never deletes, moves or changes your files. The only thing the app writes to your gallery is a collage you save yourself with “Save to gallery” (the <code>Pictures/Kept</code> folder).</li>
 </ul>
 <h2 id="what-is-computed-on-your-device">What is computed on your device</h2>
@@ -73,11 +73,11 @@
 </ul>
 <h2 id="permissions">Permissions</h2>
 <ul>
-<li>Photos and videos (<code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code>, <code>READ_MEDIA_VISUAL_USER_SELECTED</code>, on Android 10–12 <code>READ_EXTERNAL_STORAGE</code>): reading the library.</li>
+<li>Photos (<code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VISUAL_USER_SELECTED</code>, on Android 10–12 <code>READ_EXTERNAL_STORAGE</code>): reading the library.</li>
 <li>Photo locations (<code>ACCESS_MEDIA_LOCATION</code>): trips, cities and places. Without it Kept works without location features.</li>
-<li>Notifications (<code>POST_NOTIFICATIONS</code>): one morning notification about a memory.</li>
+<li>Notifications (<code>POST_NOTIFICATIONS</code>, <code>VIBRATE</code>): one morning notification about a memory.</li>
 <li>Internet (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>): only the city name request.</li>
-<li>Background work (<code>RECEIVE_BOOT_COMPLETED</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>): processing the gallery in small portions, mostly while charging, and restoring the schedule after a reboot.</li>
+<li>Background work (<code>RECEIVE_BOOT_COMPLETED</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_DATA_SYNC</code>, <code>FOREGROUND_SERVICE_SHORT_SERVICE</code>): processing the gallery in small portions, mostly while charging, and restoring the schedule after a reboot. Right after setup, while the first memories are being prepared, Kept shows a “Preparing your first memories” notification so the system does not interrupt it.</li>
 </ul>
 <h2 id="deleting-data">Deleting data</h2>
 <p>You can hide a memory, a date or a photo in the app. All of Kept’s data is deleted when you uninstall the app or tap “Clear storage” in Android settings. Your photos are not affected.</p>
