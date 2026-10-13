@@ -25,8 +25,8 @@
 <!-- The policy itself: edit it here, this page is its only copy. -->
 <main class="wrap doc">
 <h1 id="kept-memories-privacy-policy">Kept Memories Privacy Policy</h1>
-<p>Effective October 7, 2026.</p>
-<p>Kept Memories (“Kept”) is an Android app that builds memories from the photos on your phone. In short: <strong>your photos are analyzed only on your device and are never uploaded.</strong> The only thing that goes online is the approximate location of a place, to look up the name of the city.</p>
+<p>Effective October 13, 2026.</p>
+<p>Kept Memories (“Kept”) is an Android app that builds memories from the photos on your phone. In short: <strong>your photos are analyzed only on your device and are never uploaded.</strong> What goes online is the approximate location of a place, to look up the name of the city, and anonymous statistics with crash reports, which you can turn off in settings.</p>
 <p>Developer: Pavel Bernyaev. Contact: <a href="mailto:nightwelf@gmail.com">nightwelf@gmail.com</a>.</p>
 <h2 id="what-the-app-reads">What the app reads</h2>
 <ul>
@@ -39,36 +39,50 @@
 <li>frame quality (sharpness, exposure) and duplicate detection;</li>
 <li>whether a photo has faces, where they are, smiles and open eyes;</li>
 <li><strong>grouping faces into people</strong> (the “Recognize people” setting, on by default): a built-in SFace model computes a numeric fingerprint of each face (128 numbers), and similar faces are put into groups&nbsp;— that is how memories like “A year in faces” come about. The fingerprints and groups never leave the phone, are not backed up and are not matched against anything outside: Kept does not know who these people are unless you give a person a name yourself. Turning the setting off deletes all fingerprints, groups and names at once;</li>
-<li>content labels (for example “beach”, “food”) by the Google ML Kit model built into the app, without contacting any server;</li>
+<li>content labels (for example “beach”, “food”) by the Google ML Kit model built into the app; the photos are not sent to any server;</li>
 <li>events, trips and places where you often take photos (for example home and work), from dates and geotags;</li>
 <li>memory selections and your reactions to them.</li>
 </ul>
 <p>Settings are also kept only on the phone: notification time, memory types, birthdays (a name and a date you enter yourself), people's names (also only the ones you give), hidden people, hidden dates and folders.</p>
 <h2 id="what-goes-online">What goes online</h2>
-<p>Only a request for the city name of an event:</p>
+<p>Photos, thumbnails and what Kept learns about them never go online. Four things do:</p>
+<h3 id="city-name">1. The city name request</h3>
 <ul>
 <li><strong>what is sent:</strong> the coordinates of the event’s center rounded to about a kilometer (two decimal places) and the interface language. No photos, thumbnails, dates, analysis results, and no user or device identifiers;</li>
 <li><strong>to whom:</strong>
 <ol type="1">
 <li>the Android system geocoder, a service built into the phone (on devices with Google services the request is handled by Google);</li>
-<li>if the system geocoder is missing or does not answer, the Nominatim service of the OpenStreetMap Foundation (nominatim.openstreetmap.org). As its usage policy requires, the request carries the app name and version (<code>Kept/1.0 (Android; ru.nightwelf.kept)</code>); like any web server, it sees the request’s IP address. Its policy: <a href="https://osmfoundation.org/wiki/Privacy_Policy" class="uri">https://osmfoundation.org/wiki/Privacy_Policy</a>;</li>
+<li>if the system geocoder is missing or does not answer, the Nominatim service of the OpenStreetMap Foundation (nominatim.openstreetmap.org). As its usage policy requires, the request carries the app name and version (<code>Kept/1.0.0 (Android; ru.nightwelf.kept)</code>); like any web server, it sees the request’s IP address. Its policy: <a href="https://osmfoundation.org/wiki/Privacy_Policy" class="uri">https://osmfoundation.org/wiki/Privacy_Policy</a>;</li>
 </ol></li>
-<li><strong>how often:</strong> one request per place. The answer is stored on the phone for good and never requested again.</li>
+<li><strong>how often:</strong> one request per place. The name is stored on the phone for good and never requested again; if the geocoder found no city there, the place is asked again no more than once in 30 days.</li>
 </ul>
 <p>Without internet everything else works; a memory simply comes without a city name.</p>
-<p>The usage statistics that the ML Kit library sends to Google by default are turned off in Kept.</p>
+<h3 id="statistics-and-crash-reports">2. Anonymous statistics and crash reports</h3>
+<p>To see which memories are watched and where the app fails, Kept uses Google’s Firebase service. <strong>It is on by default and one switch turns it off:</strong> Settings → Privacy → “Statistics and crash reports”. Once it is off, neither is sent.</p>
+<ul>
+<li><strong>Statistics (Google Analytics for Firebase).</strong> Events: opening the morning notification; an action on a memory (opened, watched to the end, closed early, hidden, shared, edited) together with its kind, for example “on this day” or “trip”; saving a collage or sending it to another app. Analytics also records the first launch, sessions and app updates on its own, along with the phone model, the Android and app versions, the language and the country (Google derives it from the request’s IP address). The records carry a random installation identifier.</li>
+<li><strong>Crash reports (Firebase Crashlytics).</strong> The type of the error and the place in the code where it happened, the phone model, the Android and app versions, the state of the device at that moment (free memory, screen orientation) and a random installation identifier. The error’s text is not sent: it may contain file paths, coordinates and names.</li>
+<li><strong>What is never in them:</strong> photos and thumbnails, dates, places and coordinates, people’s names, folder and file names, the number of photos. The advertising ID is not collected.</li>
+</ul>
+<p>The installation identifier is not linked to your name, account or phone number, and it changes when you reinstall the app or tap “Clear storage”. The developer cannot find a particular person’s records in the statistics.</p>
+<h3 id="remote-settings">3. The remote settings request</h3>
+<p>At launch, no more than once in 12 hours, Kept asks Firebase (Remote Config) for the values the developer uses to tune memory selection for everyone at once: weights and switches of memory kinds, and the switch of the fallback geocoder. The request carries the installation identifier, the app version, the language, the country and the time zone. Nothing about your photos is in it. This request cannot be turned off; offline, Kept works on the values built into the app.</p>
+<h3 id="ml-kit-usage-data">4. Usage data of the ML Kit library</h3>
+<p>Faces and content labels are found by the Google ML Kit library. It processes the photos on the phone, but it sends Google data about its own work: the phone model, the Android and app versions, how long the models took, error codes and an installation identifier. Photos and analysis results are not part of it. The statistics switch does not affect this data.</p>
+<p>The data in items 2–4 is received and stored by Google; its rules: <a href="https://firebase.google.com/support/privacy" class="uri">https://firebase.google.com/support/privacy</a> and <a href="https://policies.google.com/privacy" class="uri">https://policies.google.com/privacy</a>. The developer sees the statistics in aggregate and the crash reports one by one, with nothing that tells whose phone it was.</p>
 <h2 id="what-kept-does-not-do">What Kept does not do</h2>
 <ul>
 <li>It does not upload photos, videos or thumbnails anywhere.</li>
-<li>It does not collect analytics or usage statistics. If that ever changes, it will be opt-in only, off by default, and this policy will be updated beforehand.</li>
-<li>No ads, no account, no sharing or selling of data to third parties.</li>
-<li>The developer has no servers your data could end up on.</li>
+<li>No ads, no advertising ID, no account.</li>
+<li>It does not sell data and does not share it with anyone beyond what “What goes online” lists.</li>
+<li>The developer has no servers of their own: statistics and crash reports are stored by Google.</li>
 <li>Kept’s data is excluded from Android backup and device transfer: on a new phone the app sorts the gallery again.</li>
 </ul>
 <h2 id="actions-you-take">Actions you take</h2>
 <ul>
 <li><strong>Share</strong> hands the collage to the app you pick (a messenger, e-mail). From then on it is handled under that app’s rules.</li>
 <li><strong>Open in gallery</strong> opens the photo in your gallery app.</li>
+<li><strong>The home screen widget</strong>, if you add it, shows a memory’s cover: a downscaled photo and the title are handed to your phone’s home screen app. They do not go online.</li>
 <li><strong>The morning notification</strong> is scheduled and shown by the phone itself; you can change its time, or turn notifications off in Android settings.</li>
 </ul>
 <h2 id="permissions">Permissions</h2>
@@ -76,15 +90,19 @@
 <li>Photos (<code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VISUAL_USER_SELECTED</code>, on Android 10–12 <code>READ_EXTERNAL_STORAGE</code>): reading the library.</li>
 <li>Photo locations (<code>ACCESS_MEDIA_LOCATION</code>): trips, cities and places. Without it Kept works without location features.</li>
 <li>Notifications (<code>POST_NOTIFICATIONS</code>, <code>VIBRATE</code>): one morning notification about a memory.</li>
-<li>Internet (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>): only the city name request.</li>
+<li>Internet (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>): the city name, statistics, crash reports and remote settings.</li>
 <li>Background work (<code>RECEIVE_BOOT_COMPLETED</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_DATA_SYNC</code>, <code>FOREGROUND_SERVICE_SHORT_SERVICE</code>): processing the gallery in small portions, mostly while charging, and restoring the schedule after a reboot. Right after setup, while the first memories are being prepared, Kept shows a “Preparing your first memories” notification so the system does not interrupt it.</li>
 </ul>
 <h2 id="deleting-data">Deleting data</h2>
 <p>You can hide a memory, a date or a photo in the app. All of Kept’s data is deleted when you uninstall the app or tap “Clear storage” in Android settings. Your photos are not affected.</p>
+<p>Statistics and crash reports stop being sent as soon as you turn the switch off in settings. What was already sent is not linked to you, so the developer cannot find and delete your records in particular; Google keeps them for a limited time under its own rules.</p>
 <h2 id="children">Children</h2>
-<p>Kept is not directed at children and collects no data about anyone.</p>
+<p>Kept is not directed at children.</p>
 <h2 id="changes">Changes</h2>
 <p>A new version of this policy is published at the same address with a new effective date.</p>
+<ul>
+<li><strong>October 13, 2026:</strong> added anonymous statistics and crash reports (Firebase), on by default and switchable in settings, the remote settings request and the home screen widget; ML Kit usage data is sent to Google again. The previous version promised that statistics would only ever appear off by default; that promise has been changed.</li>
+</ul>
 </main>
 
 <footer class="footer">
