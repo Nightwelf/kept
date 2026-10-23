@@ -97,6 +97,35 @@
     });
   }
 
+  // ---------- Test access request → Cloudflare worker → Telegram ----------
+
+  const betaForm = document.getElementById("beta-form");
+  if (betaForm) {
+    const status = betaForm.querySelector(".beta-status");
+    const button = betaForm.querySelector("button");
+    betaForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const ru = root.lang === "ru";
+      button.disabled = true;
+      status.textContent = ru ? "Отправляю…" : "Sending…";
+      try {
+        const response = await fetch("https://feedback-worker.nightwelf.workers.dev/request-test-access", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(betaForm))),
+        });
+        if (!response.ok) throw response;
+        betaForm.reset();
+        status.textContent = ru ? "✓ Запрос отправлен, приглашение придёт на почту" : "✓ Sent, the invite will arrive by email";
+      } catch {
+        // Fields stay filled so nothing is lost.
+        status.textContent = ru ? "Не отправилось, попробуй ещё раз" : "Couldn’t send, please try again";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  }
+
   // ---------- Header shadow and reveal on scroll ----------
 
   const header = document.querySelector(".header");

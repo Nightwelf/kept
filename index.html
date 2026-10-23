@@ -154,6 +154,7 @@
       <a href="#features"><span lang="ru">Возможности</span><span lang="en">Features</span></a>
       <a href="#privacy"><span lang="ru">Приватность</span><span lang="en">Privacy</span></a>
       <a href="#faq"><span lang="ru">Вопросы</span><span lang="en">FAQ</span></a>
+      <a href="#beta"><span lang="ru">Тест</span><span lang="en">Beta</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Язык / Language">
       <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
@@ -420,6 +421,31 @@
           <p><span lang="ru">Kept&nbsp;— только для Android 10 и новее.</span><span lang="en">Kept is Android only, version 10 or newer.</span></p>
         </details>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="beta" style="padding-top:0">
+    <div class="wrap beta">
+      <div class="head reveal">
+        <span class="kicker"><span lang="ru">Тестирование</span><span lang="en">Beta</span></span>
+        <h2><span lang="ru">Попробуй Kept <em>до релиза</em></span><span lang="en">Try Kept <em>before release</em></span></h2>
+        <p><span lang="ru">Оставь почту Google-аккаунта&nbsp;— пришлю приглашение в&nbsp;закрытый тест.</span><span lang="en">Leave your Google account email and I’ll send you an invite to the closed test.</span></p>
+        <ul class="facts">
+          <li><svg class="ic"><use href="#i-check"/></svg><span lang="ru">Сборки через Google Play</span><span lang="en">Builds via Google Play</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Android 10+</li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span lang="ru">Почта&nbsp;— только для приглашения</span><span lang="en">Email is used only for the invite</span></li>
+        </ul>
+      </div>
+
+      <form class="card beta-form reveal" id="beta-form">
+        <input type="hidden" name="app" value="kept">
+        <label><span><span lang="ru">Почта</span><span lang="en">Email</span></span><input type="email" name="email" required maxlength="200" autocomplete="email" placeholder="name@gmail.com"></label>
+        <label><span><span lang="ru">Устройство</span><span lang="en">Device</span> <small lang="ru">необязательно</small><small lang="en">optional</small></span><input name="device" maxlength="100" placeholder="Pixel 7, Android 14"></label>
+        <label><span><span lang="ru">Комментарий</span><span lang="en">Comment</span> <small lang="ru">необязательно</small><small lang="en">optional</small></span><textarea name="comment" maxlength="1000" rows="3"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span lang="ru">Запросить доступ</span><span lang="en">Request access</span></button>
+        <span class="beta-status" role="status" aria-live="polite"></span>
+      </form>
     </div>
   </section>
 

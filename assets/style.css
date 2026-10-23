@@ -1178,6 +1178,91 @@ details p {
   color: var(--muted);
 }
 
+/* Beta request */
+
+.beta {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+.beta .head {
+  margin: 0;
+}
+.beta-form {
+  display: grid;
+  gap: 18px;
+  padding: 36px;
+}
+.beta-form label > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.beta-form small {
+  margin-left: 6px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.beta-form input,
+.beta-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--bg-soft);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--text);
+  font: inherit;
+  resize: none;
+  transition: box-shadow 0.2s;
+}
+.beta-form input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+.beta-form input:focus,
+.beta-form textarea:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--violet);
+}
+.beta-form .hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+}
+.beta-form button {
+  margin-top: 6px;
+  padding: 16px 22px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--grad);
+  color: #fff;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 18px 32px -18px rgba(107, 78, 255, 0.8);
+  transition: transform 0.25s var(--ease);
+}
+.beta-form button:hover {
+  transform: translateY(-2px);
+}
+.beta-form button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+}
+.beta-status {
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center;
+}
+.beta-status:empty {
+  display: none;
+}
+
 /* Final call */
 
 .final {
@@ -1351,7 +1436,8 @@ details p {
   }
   .steps,
   .privacy-grid,
-  .faq {
+  .faq,
+  .beta {
     grid-template-columns: 1fr;
   }
   .bento {
@@ -1417,7 +1503,8 @@ details p {
     grid-column: auto;
     grid-template-columns: 1fr;
   }
-  .card {
+  .card,
+  .beta-form {
     padding: 24px;
   }
   .island {
