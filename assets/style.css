@@ -1418,6 +1418,42 @@ details p {
   font-weight: 700;
 }
 
+/* Screenshots */
+
+.shots {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.shot {
+  margin: 0;
+}
+.shot .frame {
+  padding: 7px;
+  border-radius: 34px;
+  background: linear-gradient(145deg, #2a2240, #0b0814 60%);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.14),
+    0 40px 60px -36px rgba(60, 30, 140, 0.5);
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 27px;
+}
+.shot figcaption {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.shot figcaption b {
+  display: block;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 980px) {
@@ -1442,6 +1478,21 @@ details p {
   }
   .bento {
     grid-template-columns: 1fr 1fr;
+  }
+  /* Five phones don't fit: swipe them sideways, edge to edge. */
+  .shots {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 220px;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 28px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: thin;
+  }
+  .shot {
+    scroll-snap-align: start;
   }
   .faq .head {
     position: static;
